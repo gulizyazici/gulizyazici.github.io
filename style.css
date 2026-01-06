@@ -7,13 +7,14 @@
 
 body {
     scroll-behavior: smooth; /* CSS soft slide */
+    background: transparent;
 }
 
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: #111; /*header bg color*/
+    background: #0b0e1a; /*header bg color*/
     padding: 20px 60px;
     z-index: 1000;
 }
@@ -24,13 +25,68 @@ header {
     align-items: center;
 }
 
+section {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================
+   STARRY BACKGROUND
+========================= */
+
+body {
+    margin: 0;
+    background: #0b0e1a; /* koyu gece tonu */
+    color: white;
+    overflow-x: hidden;
+}
+
+#stars {
+    position: fixed;
+    inset: 0;
+    z-index: -999;
+    background-color: #0b0e1a;
+
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 25% 80%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 40% 40%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 55% 65%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 70% 30%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 95% 15%, rgba(255,255,255,0.8), transparent);
+
+    background-size: 250px 250px;
+    animation: starsMove 70s linear infinite;
+    opacity: 0.45;
+}
+
+@keyframes starsMove {
+    from { background-position: 0 0; }
+    to { background-position: 1200px 1200px; }
+}
+
+
+
 /* LOGO / Name */
 .logo {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    display: flex;
+  align-items: center;
 }
+
+.logo img {
+  height: 40px;       
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 32px;
+  }
+}
+
 
 /* NAVBAR */
 nav ul {
@@ -58,8 +114,13 @@ nav a::after {
     transition: width 0.3s ease;
 }
 
+nav a:hover {
+    color: #ff8c42; /* header hover color */
+}
+
 nav a:hover::after {
     width: 100%;
+    background-color: #ff8c42; /* header hover color line */
 }
 
 
@@ -73,7 +134,7 @@ section {
 #projects { background: #f4f4f4; }
 
 #about { 
-    background: #111; 
+    background: transparent; 
     padding: 120px 100px;
 }
 
@@ -144,7 +205,7 @@ section {
 
 
 #certificates { 
-    background: #111;
+    background: transparent;
     padding: 120px 100px; 
 }
 
@@ -202,7 +263,7 @@ section {
 
 /*SKILLS*/
 #skills { 
-    background: #111; 
+    background: transparent;
     padding: 120px 100px;
 }
 
@@ -217,10 +278,16 @@ section {
 
 /* GROUP CARD */
 .skill-group {
-    background: #f6f6f6;
+    background: #031e43;
     border-radius: 20px;
     padding: 32px;
     transition: all 0.3s ease;
+    border: 1px solid #6ea2ec;
+}
+
+.skill-group:hover {
+    border: 1px solid #adc8ee;
+    transform: scale(1.05);
 }
 
 /* HEADER */
@@ -248,6 +315,43 @@ section {
     transition: all 0.4s ease;
     margin-top: 0;
 }
+
+.skill-content {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.skill-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 16px;
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    transition: all 0.3s ease;
+}
+
+.skill-bar .iconify {
+    font-size: 24px;
+    color: #f39c12; /* turuncu */
+}
+
+.skill-bar span {
+    font-size: 14px;
+    color: #fff;
+}
+
+/* hover */
+.skill-bar:hover {
+    transform: scale(1.06);
+    background: rgba(255, 255, 255, 0.12);
+}
+
 
 .skill-group.active .skill-content {
     max-height: 400px;
@@ -296,7 +400,7 @@ section {
 
 /*BACKGROUND*/
 #background {
-    background: #111;
+    background: transparent;
     min-height: 100vh;
     padding: 120px 80px;
 }
@@ -372,6 +476,7 @@ section {
 }
 
 #home {
+    background: transparent;
     min-height: 100vh;
     padding: 120px 100px;
     display: flex;
@@ -389,10 +494,10 @@ section {
 }
 
 /* Left side – text */
-.home-text .intro {
+.home-text {
     font-size: 28px;
     line-height: 1.4;
-    max-width: 520px;
+    max-width: 500px;
     color: white;   /*text color*/
 }
 
@@ -401,11 +506,36 @@ section {
     color: white; /*text color*/
 }
 
+.home-title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.home-title .highlight {
+    color: #ff8c42; /* turuncu */
+}
+
+.home-subtitle {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    opacity: 0.9;
+}
+
+.home-typing {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.8;
+    min-height: 24px; /* typing sırasında zıplamayı önler */
+}
+
 /* SOCIAL MEDIA ICONS */
 .social-icons {
     display: flex;
     gap: 24px;
-    margin-top: 32px;
+    margin-top: 24px;
 }
 
 .social-icons a {
@@ -427,10 +557,20 @@ section {
 
 .social-icons a:hover {
     transform: translateY(-3px);
-    opacity: 0.7;
 }
 
+/* PLATFORM RENKLERİ */
+.social-icons .icon.linkedin:hover {
+    color: #0c80f3;
+}
 
+.social-icons .icon.behance:hover {
+    color: #053eff;
+}
+
+.social-icons .icon.gmail:hover {
+    color: #ff0404;
+}
 
 /* Right side – Image */
 .home-image {
@@ -468,7 +608,7 @@ section {
 /*PROJECTS*/
 #projects {
     padding: 120px 100px;
-    background: #111; /*project bg*/
+    background: transparent; /*project bg*/
 }
 
 .section-title {
@@ -483,14 +623,16 @@ section {
 }
 
 .project-card {
-    background: #f5f5f5;
+    background: #051224;
     border-radius: 20px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    border: 1px solid #1956ab;
 }
 
 .project-card:hover {
     transform: translateY(-6px);
+    border: 1px solid #6ea2ec;
 }
 
 .project-card img {
@@ -507,21 +649,23 @@ section {
     font-size: 15px;
     line-height: 1.5;
     margin-bottom: 16px;
+    color:white; /*project desc color*/
 }
 
-.more-btn {
+.project-more-btn {
     background: none;
-    border: 1px solid #111;
+    border: 1px solid #1956ab;
     padding: 8px 20px;
     border-radius: 30px;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s ease;
+    color: white;
 }
 
-.more-btn:hover {
-    background: #111;
-    color: #fff;
+.project-more-btn:hover {
+    background: #6ea2ec;
+    color: #051224;
 }
 
 .project-modal {
@@ -538,6 +682,27 @@ section {
     display: flex;
 }
 
+@media (max-width: 1024px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .project-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+}
+
+
+
 .modal-content {
     background: #fff;
     width: 80%;
@@ -551,12 +716,14 @@ section {
 .modal-content h3 {
     font-size: 32px;
     margin-bottom: 16px;
+    color:#011034;
 }
 
 .modal-text {
     font-size: 16px;
     max-width: 600px;
     margin-bottom: 32px;
+    color:#011034;
 }
 
 .modal-images {
@@ -592,7 +759,7 @@ section {
 
 #awards {
   padding: 120px 60;
-  background: #111;
+  background: transparent;
 }
 
 .awards-grid {
@@ -630,7 +797,7 @@ section {
   line-height: 1.2;
   margin-bottom: 24px;
   max-width: 900px;
-  color: white;
+  color: black;
 }
 
 /* İçerik */
@@ -639,6 +806,7 @@ section {
   grid-template-columns: 1.2fr 1fr;
   gap: 60px;
   align-items: start;
+  color: black;
 }
 
 /* Görsel */
@@ -653,9 +821,37 @@ section {
 .award-content p {
   font-size: 16px;
   line-height: 1.7;
-  color: white;
+  color: black;
   max-width: 520px;
 }
+
+.award-more-btn {
+    background: none;
+    border: 1px solid #111;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.award-more-btn:hover {
+    background: #111;
+    color: #fff;
+}
+
+.awards-slider {
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE & Edge */
+}
+
+.awards-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+
+
 
 @media (max-width: 900px) {
   .award-content {
@@ -669,9 +865,9 @@ section {
 
 
 
-/*CONTACT*/
+/*============CONTACT=============00*/
 #contact {
-    background: #111;
+    background: transparent;
     color: white;
     min-height: 100vh;
     display: flex;
@@ -728,3 +924,176 @@ section {
     width: 100%;
 }
 
+
+
+.modal-description {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modal-image {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.modal-link {
+  color: var(--first-color);
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+
+.modal-icon {
+  font-size: 2rem;
+}
+
+/*======================AWARDS=========================*/
+.awards-slider {
+    display: flex;
+    gap: 32px;
+    overflow-x: auto;
+    padding: 20px 100px;
+    scroll-snap-type: x mandatory;
+}
+
+.awards-slider::-webkit-scrollbar {
+    height: 6px;
+}
+
+.awards-slider::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.award-card {
+    min-width: 420px;
+    background: #051224;
+    border-radius: 20px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #71a8eb;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+
+.award-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.award-content {
+    padding: 24px;
+}
+
+.award-content h3 {
+    margin-bottom: 12px;
+    color: #b6d1f6;
+}
+
+.award-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    color: #99c3ff;
+}
+
+.award-more-btn {
+    background: none;
+    border: 1px solid #6ea2ec;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #94bbf1;
+
+    position: absolute;
+    bottom: 40px;
+    left: 15%;
+    transform: translateX(-50%);
+}
+
+.award-more-btn:hover {
+    background: #6ea2ec;
+    color: #031e43;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    max-width: 800px;
+    width: 90%;
+    padding: 40px;
+    border-radius: 24px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.modal-images img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.awards-wrapper {
+    position: relative;
+    padding: 0 80px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #6ea2ec;;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.arrow.left {
+    left: 20px;
+}
+
+.arrow.right {
+    right: 20px;
+}
+
+.arrow:hover {
+    background: #111;
+    color: white;
+}
