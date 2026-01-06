@@ -278,7 +278,7 @@ section {
 
 /* GROUP CARD */
 .skill-group {
-    background: #031e43;
+    background: #051224;
     border-radius: 20px;
     padding: 32px;
     transition: all 0.3s ease;
@@ -349,7 +349,7 @@ section {
 /* hover */
 .skill-bar:hover {
     transform: scale(1.06);
-    background: rgba(255, 255, 255, 0.12);
+    background: rgb(3, 80, 148);
 }
 
 
@@ -423,14 +423,14 @@ section {
     font-size: 22px;
     margin-bottom: 30px;
     position: relative;
-    color: white;
+    color: orange;
 }
 
 .background-column h3::after {
     content: "";
     width: 40px;
     height: 2px;
-    background: white;
+    background: orange;
     position: absolute;
     left: 0;
     bottom: -10px;
@@ -462,17 +462,18 @@ section {
 
 
 
+
 .subtitle {
     display: block;
     font-size: 15px;
     color: #555;
     margin-bottom: 5px;
-    color: white;
+    color: rgba(255, 255, 255, 0.703);
 }
 
 .date {
     font-size: 14px;
-    color: white;
+    color: rgba(255, 255, 255, 0.386);
 }
 
 #home {
@@ -628,6 +629,7 @@ section {
     overflow: hidden;
     transition: transform 0.3s ease;
     border: 1px solid #1956ab;
+    position: relative;
 }
 
 .project-card:hover {
@@ -643,6 +645,7 @@ section {
 
 .project-info {
     padding: 20px;
+    padding-bottom: 60px;
 }
 
 .project-desc {
@@ -661,6 +664,12 @@ section {
     font-size: 14px;
     transition: all 0.3s ease;
     color: white;
+    text-decoration: none;
+
+    position: absolute;
+    bottom: 20px;   /* kartın altından mesafe */
+    left: 15%;
+    transform: translateX(-50%);
 }
 
 .project-more-btn:hover {
@@ -902,26 +911,26 @@ section {
 }
 
 .contact-mail {
-    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    padding: 6px 16px;
     color: white;
     text-decoration: none;
-    position: relative;
 }
 
-/* underline hover effect */
 .contact-mail::after {
     content: "";
     position: absolute;
-    width: 0;
-    height: 1px;
-    left: 0;
-    bottom: -5px;
-    background: white;
-    transition: width 0.3s ease;
+    inset: 0;
+    border: 1px solid white;
+    border-radius: 999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
 }
 
 .contact-mail:hover::after {
-    width: 100%;
+    transform: scaleX(1);
 }
 
 
