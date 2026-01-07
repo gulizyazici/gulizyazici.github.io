@@ -183,3 +183,26 @@ if (slider && nextBtn && prevBtn) {
     });
 }
 });
+
+
+const openGallery = document.getElementById("openGallery");
+const modal = document.getElementById("galleryModal");
+const closeBtn = document.querySelector(".gallery-close");
+
+openGallery.addEventListener("click", function(e) {
+    e.preventDefault();
+    modal.style.display = "flex";
+});
+
+closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", function(e) {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+
+

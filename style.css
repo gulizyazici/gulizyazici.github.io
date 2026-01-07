@@ -72,7 +72,7 @@ body {
 /* LOGO / Name */
 .logo {
     display: flex;
-  align-items: center;
+    align-items: center;
 }
 
 .logo img {
@@ -576,15 +576,16 @@ section {
 /* Right side – Image */
 .home-image {
     display: flex;
-    justify-content: flex-end;
+    position: relative;
 }
 
 .home-image img {
     width: 100%;
     max-width: 360px;
     height: auto;
-    border-radius: 16px;
+    border-radius: 50%;
     object-fit: cover;
+    margin-left: 30px;
 }
 
 /* =======================
@@ -1167,4 +1168,182 @@ section {
     }
 }
 
+/*-----------PUBLICATION-----------*/
+#publication {
+    padding: 120px 100px;
+}
+
+.publication-card {
+    display: flex;
+    gap: 40px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* SOL GÖRSEL */
+.publication-image img {
+    width: 260px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* SAĞ İÇERİK */
+.publication-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.publication-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* META */
+.publication-meta {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* AUTHORS */
+.publication-authors p {
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+/* TAGS */
+.publication-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid #6ea2ec;
+    font-size: 12px;
+}
+
+/* PARAGRAF */
+.publication-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+/* BUTONLAR */
+.publication-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.pub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 22px;
+    border-radius: 20px;
+    border: 1px solid #6ea2ec;
+    color: #94bbf1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pub-btn:hover {
+    background: #6ea2ec;
+    color: #000;
+}
+
+.pub-btn.secondary {
+    border-color: #aaa;
+    color: #aaa;
+}
+
+/* MODAL BACKDROP */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+
+    align-items: center;
+    justify-content: center;
+}
+
+/* MODAL BOX */
+.gallery-content {
+    background: #0b0e1a;
+    width: 90%;
+    max-width: 800px;
+
+    max-height: 80vh;      /* ⭐ EKRANA SIĞSIN */
+    overflow-y: auto;      /* ⭐ İÇİ KAYDIRILSIN */
+
+    padding: 30px;
+    border-radius: 16px;
+    position: relative;
+
+    animation: scaleIn 0.3s ease;
+}
+
+/* CLOSE */
+.gallery-close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* TITLE */
+.gallery-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.gallery-desc {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* GRID */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 16px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.04);
+}
+
+/* ANIMATION */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
