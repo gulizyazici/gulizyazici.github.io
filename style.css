@@ -30,23 +30,37 @@ section {
     z-index: 1;
 }
 
-/* Masaüstü */
+/* Masaüstü: menü açık, hamburger gizli */
 nav ul {
-    display: flex; /* masaüstü menü açık */
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
 
-/* Başlangıçta hamburger gizli, masaüstünde normal menü açık */
 .menu-toggle {
     display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
 }
 
-/* Responsive: 767px ve altı için */
+/* Küçük ekranlar */
 @media (max-width: 768px) {
+    nav {
+        position: relative; /* mutlak konumlama için referans */
+    }
+
     nav ul {
-        display: none; /* küçük ekranlarda gizle */
+        display: none; /* başlangıçta gizli */
         flex-direction: column;
         gap: 10px;
-        width: 100%;
+        width: 200px;           /* menü genişliği */
+        position: absolute;      /* header’a göre konumlanacak */
+        top: 40px;               /* header yüksekliği */
+        right: 0;                /* sağa yasla */
+        background-color: #0b0e1a;
+        padding: 10px;
+        border-radius: 0 0 8px 8px;
     }
 
     .menu-toggle {
@@ -56,7 +70,17 @@ nav ul {
         margin-left: auto;
         color: white;
     }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 5px 0;
+    }
 }
+
+
+
 
 
 
