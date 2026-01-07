@@ -29,6 +29,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fadeElements.forEach(el => observer.observe(el));
 
+    /* =========================
+       HEADER TOGGLE
+    ========================= */
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    function toggleMenu() {
+        // Küçük ekranda menüyü aç/kapa
+        if (navMenu.style.display === 'flex') {
+            navMenu.style.display = 'none';
+        } else {
+            navMenu.style.display = 'flex';
+        }
+    }
+
+    function checkScreen() {
+        if (window.innerWidth <= 768) {
+            // Küçük ekran: hamburger aktif, menü kapalı
+            navMenu.style.display = 'none';
+            menuToggle.addEventListener('click', toggleMenu);
+        } else {
+            // Büyük ekran: menü açık, hamburger devre dışı
+            navMenu.style.display = 'flex';
+            menuToggle.removeEventListener('click', toggleMenu);
+        }
+    }
+
+    // Sayfa yüklendiğinde ve ekran boyutu değiştiğinde kontrol et
+    window.addEventListener('load', checkScreen);
+    window.addEventListener('resize', checkScreen);
+
+
+
      /* =========================
        HOME TYPING ANIMATION
     ========================= */

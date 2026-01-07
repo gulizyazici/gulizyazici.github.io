@@ -30,6 +30,36 @@ section {
     z-index: 1;
 }
 
+/* Masaüstü */
+nav ul {
+    display: flex; /* masaüstü menü açık */
+}
+
+/* Başlangıçta hamburger gizli, masaüstünde normal menü açık */
+.menu-toggle {
+    display: none;
+}
+
+/* Responsive: 767px ve altı için */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* küçük ekranlarda gizle */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block; /* hamburger görünür */
+        cursor: pointer;
+        font-size: 24px;
+        margin-left: auto;
+        color: white;
+    }
+}
+
+
+
 
 /* =========================
    STARRY BACKGROUND
@@ -81,7 +111,7 @@ body {
   object-fit: contain;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .logo img {
     height: 32px;
   }
@@ -192,7 +222,7 @@ section {
     object-fit: cover;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .about-container {
         grid-template-columns: 1fr;
         gap: 60px;
