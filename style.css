@@ -1401,3 +1401,100 @@ section {
     }
 }
 
+/*FOR PHONE*/
+@media (max-width: 768px) {
+    section {
+        padding: 80px 20px; /* padding’i azalt */
+    }
+
+    .home-text {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .home-title {
+        font-size: 36px;
+    }
+
+    .home-subtitle {
+        font-size: 20px;
+    }
+
+    .home-typing {
+        font-size: 16px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .publication-desc,
+    .modal-text {
+        font-size: 14px;
+    }
+
+    .award-content p {
+        font-size: 14px;
+    }
+
+    .skill-bar span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container,
+    .home-container,
+    .background-container,
+    .award-content {
+        grid-template-columns: 1fr;
+        gap: 40px; /* aralık biraz azalt */
+    }
+
+    .publication-card {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        width: 220px;      /* menü genişliği */
+        right: -20px;       /* sağdan hafif boşluk */
+        top: 30px;         /* header altı */
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-image img,
+    .about-image img,
+    .publication-image img {
+        max-width: 250px;  /* boyutu küçült */
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content,
+    .gallery-content {
+        width: 90%;
+        padding: 20px;
+        max-height: 80vh;   /* yükseklik ekranı aşmasın */
+        overflow-y: auto;
+    }
+}
+
+
+
